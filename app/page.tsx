@@ -2,7 +2,7 @@
 import "./index.css";
 import "./preloader.css";
 import Image from "next/image";
-
+import { Star, Users, Lightbulb, Puzzle, ThumbsUp, TrendingUp } from "lucide-react";
 import { useRef, useState, useEffect } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -25,6 +25,7 @@ CustomEase.create("hop", "0.9, 0, 0.1, 1");
 
 export default function Home() {
   const tagsRef = useRef<HTMLDivElement | null>(null);
+  const statsRef = useRef<HTMLDivElement | null>(null);
   const [showPreloader] = useState<boolean>(isInitialLoad);
   const [loaderAnimating, setLoaderAnimating] = useState<boolean>(false);
   const lenis = useLenis();
@@ -135,10 +136,54 @@ export default function Home() {
     { scope: tagsRef }
   );
 
+  // Animation des stats
+  useGSAP(() => {
+    if (!statsRef.current) return;
+
+    const cards = Array.from(statsRef.current.querySelectorAll<HTMLElement>(".stat"));
+    if (cards.length === 0) return;
+
+    cards.forEach((card, i) => {
+      const isRightColumn = i % 2 === 1;
+      gsap.set(card, {
+        x: isRightColumn ? 60 : -60,
+        opacity: 0,
+        transformOrigin: "center center",
+        willChange: "transform, opacity",
+      });
+    });
+
+    ScrollTrigger.batch(cards, {
+      interval: 0.1, // groupement fluide
+      start: "top 90%",
+      once: true,
+      onEnter: (batch) => {
+        gsap.to(batch, {
+          x: 0,
+          opacity: 1,
+          duration: 1.1,
+          stagger: 0.15,
+          ease: "power2.out",  // courbe plus naturelle
+          overwrite: "auto",   // évite les collisions d’animations
+          clearProps: "transform", // supprime la micro-saccade à la fin
+        });
+      },
+    });
+  }, { scope: statsRef });
+
+  const stats = [
+    { icon: Star, label: "Bienvenue à la Cime des Apps, votre partenaire privilégié dans le développement de solutions digitales sur-mesure." },
+    { icon: ThumbsUp, label: "Nous sommes reconnus pour notre approche humaine et nos collaborations authentiques." },
+    { icon: Lightbulb, label: "Ce qui nous motive est l’élaboration de solutions évolutives adaptées à vos besoins spécifiques." },
+    { icon: Users, label: "Nous construisons des relations de confiance durables avec nos clients grâce à nos compétences, notre réactivité et notre engagement envers des solutions efficaces." },
+    { icon: Puzzle, label: "Que votre projet implique la création d’un site vitrine, d’une plateforme e-commerce ou d’une application, nous vous guiderons à chaque étape." },
+    { icon: TrendingUp, label: "À la Cime des Apps, nous sommes là pour transformer vos idées en succès digitaux." },
+  ];
+
   return (
     <>
       {/* Preloader */}
-      {showPreloader && (
+      {/* {showPreloader && (
         <div className="loader">
           <div className="overlay">
             <div className="block"></div>
@@ -181,7 +226,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-      )}
+      )} */}
 
       {/* Navigation */}
       <Nav />
@@ -190,26 +235,31 @@ export default function Home() {
       <section className="hero">
         <div className="hero-bg">
           <Image
-            src="/home/hero.jpg"
+            src="/home/lcda-landing.jpg"
             alt="Hero background"
             fill
             priority
-            sizes="100vw"
+            quality={100}
+            sizes="(max-width: 768px) 100vw, (max-width: 1400px) 100vw, 1920px"
+            style={{
+              objectFit: "cover",
+              objectPosition: "center",
+            }}
           />
         </div>
         <div className="hero-gradient"></div>
         <div className="container">
           <div className="hero-content">
             <div className="hero-header">
-              <Copy animateOnScroll={false} delay={showPreloader ? 10 : 0.85}>
+              <Copy animateOnScroll={false} delay={showPreloader ? 1 : 0.85}>
                 <h1>Spaces that feel rooted, human, and quietly bold</h1>
               </Copy>
             </div>
             <div className="hero-tagline">
-              <Copy animateOnScroll={false} delay={showPreloader ? 10.15 : 1}>
+              <Copy animateOnScroll={false} delay={showPreloader ? 1.15 : 1}>
                 <p>
-                  At Terrene, we shape environments that elevate daily life,
-                  invite pause, and speak through texture and light.
+                  At Terrene, we shape environments that elevate daily life, invite
+                  pause, and speak through texture and light.
                 </p>
               </Copy>
             </div>
@@ -217,37 +267,38 @@ export default function Home() {
               label="Discover More"
               route="/studio"
               animateOnScroll={false}
-              delay={showPreloader ? 10.3 : 1.15}
+              delay={showPreloader ? 1.3 : 1.15}
             />
           </div>
         </div>
+      </section>
 
-        {/* Stats */}
-        <div className="hero-stats">
-          <div className="container">
-            {[
-              { value: "225+", label: "Completed design studies" },
-              { value: "36", label: "Ongoing spatial explorations" },
-              { value: "12", label: "Cross-disciplinary collaborators" },
-              { value: "98%", label: "Return rate across commissions" },
-            ].map((stat, i) => (
+      {/* Stats (section indépendante) */}
+      <section className="hero-stats-section">
+        <div className="who-we-are">
+          <Copy delay={0.1 * 0.05}>
+            <h1 className="who-we-are-title">Qui sommes-nous ?</h1>
+          </Copy>
+        </div>
+
+        <div className="container" ref={statsRef}>
+          {stats.map((item, i) => {
+            const Icon = item.icon;
+            return (
               <div key={i} className="stat">
-                <div className="stat-count">
-                  <Copy delay={0.1 + i * 0.05}>
-                    <h2>{stat.value}</h2>
-                  </Copy>
+                <div className="stat-icon">
+                  <Icon size={28} strokeWidth={1.5} />
                 </div>
-                <div className="stat-divider"></div>
                 <div className="stat-info">
-                  <Copy delay={0.15 + i * 0.05}>
-                    <p>{stat.label}</p>
-                  </Copy>
+                  <p>{item.label}</p>
                 </div>
               </div>
-            ))}
-          </div>
+            );
+          })}
         </div>
       </section>
+
+
 
       {/* What we do */}
       <section className="what-we-do">

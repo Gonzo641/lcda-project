@@ -1,10 +1,12 @@
 .hero {
   position: relative;
   width: 100vw;
-  height: 135svh;
+  height: auto; /* ✅ passe en auto pour s’adapter au contenu */
+  min-height: 105svh; /* garde une hauteur minimale */
   overflow: hidden;
   background-color: #d3cec5;
 }
+
 
 .hero .hero-bg {
   position: absolute;
@@ -18,18 +20,32 @@
 
 .hero .hero-gradient {
   position: absolute;
-  bottom: 0;
+  bottom: -1px; /* chevauche légèrement la section suivante */
   left: 0;
   width: 100%;
-  height: 50svh;
-  background: #1a1818;
+  height: 20rem; /* ajustable selon la taille du fondu souhaité */
+/* background: linear-gradient(
+  to bottom,
+  rgba(26, 24, 24, 0) 0%,
+  rgba(35, 30, 40, 0.3) 40%,
+  rgba(40, 30, 50, 0.6) 70%,
+  rgba(20, 19, 19, 1) 100%
+); */
   background: linear-gradient(
-    360deg,
-    rgba(20, 19, 19, 1) 0%,
-    rgba(20, 19, 19, 0) 100%
+    to top,
+    rgba(20, 19, 19, 1) 0%,       /* noir profond à la base */
+    rgba(20, 19, 19, 0.9) 20%,    /* léger dégradé */
+    rgba(20, 19, 19, 0.6) 45%,    /* fondu moyen */
+    rgba(20, 19, 19, 0.3) 70%,    /* transition douce */
+    rgba(20, 19, 19, 0) 100%      /* transparent sur le haut */
   );
-  z-index: 2;
+  pointer-events: none;
+  z-index: 3;
+  filter: blur(1px); /* léger flou pour éviter une démarcation visible */
+  opacity: 0.95;
 }
+
+
 
 .hero .hero-content {
   position: absolute;
@@ -52,20 +68,32 @@
   color: var(--base-200);
 }
 
-.hero .hero-stats {
-  position: absolute;
-  bottom: 0;
+.hero-stats-section {
+  position: relative;
   width: 100%;
+  background: #141313; /* tu peux mettre transparent si tu veux garder la continuité du fond */
   z-index: 2;
 }
 
-.hero .hero-stats .container {
-  display: flex;
-  gap: 1rem;
-  width: 100%;
+.who-we-are .who-we-are-title {
+  text-transform: uppercase;
+  font-size: 3rem;
+  color: var(--base-100);
+  text-align: center;
+  margin-bottom: 5rem;
+  letter-spacing: 0.1px;
 }
 
-.hero .hero-stats .stat {
+.hero-stats-section .container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 colonnes égales */
+  gap: 1.5rem;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* .hero-stats-section .stat {
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -76,20 +104,55 @@
   backdrop-filter: blur(1rem);
   border-radius: 1rem;
   overflow: hidden;
+} */
+
+.hero-stats-section .stat {
+  display: flex;
+  flex-direction: row; /* icône à gauche, texte à droite */
+  align-items: flex-start;
+  gap: 1rem;
+  background-color: rgba(242, 237, 230, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  color: var(--base-100);
+  backdrop-filter: blur(0.5rem);
+  transition: transform 0.3s ease, background-color 0.3s ease;
+    transform: translateZ(0);
+  backface-visibility: hidden;
+  will-change: transform, opacity;
 }
 
-.hero .hero-stats .stat-count,
-.hero .hero-stats .stat-info {
+.hero-stats-section .stat:hover {
+  transform: translateY(-4px);
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+.hero-stats-section .stat-icon {
+  flex-shrink: 0;
+  color: var(--base-200);
+  margin-top: 0.2rem;
+}
+
+.hero-stats-section .stat-info p {
+  color: var(--base-300);
+  line-height: 1.6;
+  font-size: 1rem;
+}
+
+
+.hero-stats-section .stat-count,
+.hero-stats-section .stat-info {
   flex: 1;
 }
 
-.hero .hero-stats .stat-divider {
+.hero-stats-section .stat-divider {
   width: 100%;
   height: 1px;
   background-color: rgba(255, 255, 255, 0.05);
 }
 
-.hero .hero-stats .stat-info {
+.hero-stats-section .stat-info {
   display: flex;
   align-items: flex-end;
 }
@@ -107,7 +170,7 @@
   }
 
   .hero .hero-stats .container {
-    flex-direction: column;
+    grid-template-columns: 1fr;
   }
 
   .hero .hero-stats .stat {

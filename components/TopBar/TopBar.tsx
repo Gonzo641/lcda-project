@@ -59,7 +59,7 @@ const TopBar = () => {
           }}
         >
           <Image
-            src="/logos/terrene-logo-symbol.png"
+            src="/logos/lcda-logo.png"
             alt="Terrene Logo"
             width={40}
             height={40}
