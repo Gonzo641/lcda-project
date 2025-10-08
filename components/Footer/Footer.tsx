@@ -50,7 +50,7 @@ const Footer: React.FC = () => {
 
   return (
     <footer className="footer">
-      <div className="footer-meta">
+      {/* <div className="footer-meta">
         <div className="container footer-meta-header">
           <div className="footer-meta-col">
             <div className="footer-meta-block">
@@ -119,26 +119,21 @@ const Footer: React.FC = () => {
             </Copy>
           </div>
         </div>
-      </div>
+      </div> */}
 
       <div className="footer-outro">
-        <div className="container">
+        <div className="footer-container">
           <div className="footer-header">
             <Image
-              src="/logos/terrene-footer-logo.svg"
+              src="/logos/lcda-logo.png"
               alt="Terrene footer logo"
-              width={300}
-              height={80}
+              fill
               priority
             />
           </div>
 
           <div className="footer-copyright">
-            <p>
-              Developed by — <span>Codegrid</span>
-            </p>
-            <p>This website is using cookies.</p>
-            <p>All rights reserved &copy; 2025</p>
+            <p>&copy; 2025 La Cime Des Apps</p>
           </div>
         </div>
       </div>

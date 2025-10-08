@@ -59,13 +59,20 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 2rem;
+  gap: 1rem;
   padding: 1rem;
 }
 
 .hero .hero-tagline {
   width: 40%;
   color: var(--base-200);
+}
+
+.hero .hero-author {
+  width: 40%;
+  color: var(--base-200);
+  font-style: italic;
+  padding-left: 10rem;
 }
 
 .hero-stats-section {
@@ -166,6 +173,10 @@
   }
 
   .hero .hero-tagline {
+    width: 75%;
+  }
+
+  .hero .hero-author {
     width: 75%;
   }
 

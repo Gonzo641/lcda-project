@@ -21,7 +21,8 @@
   margin: 0;
   width: 3rem;
   height: 3rem;
-  background: var(--base-450);
+  /* background: var(--base-450); */
+  background: #7d2ae8;
   border-radius: 4rem;
   font-size: 1.5rem;
   transform: scale(0);

@@ -19,6 +19,7 @@ import CTAWindow from "@/components/CTAWindow/CTAWindow";
 import Copy from "@/components/Copy/Copy";
 import Skills from "@/components/Skills/Skills";
 import Projects from "@/components/Projects/Projects";
+import Services from "@/components/Services/Services";
 
 let isInitialLoad = true;
 
@@ -254,14 +255,20 @@ export default function Home() {
           <div className="hero-content">
             <div className="hero-header">
               <Copy animateOnScroll={false} delay={showPreloader ? 1 : 0.85}>
-                <h1>Spaces that feel rooted, human, and quietly bold</h1>
+                <h1>LA CIME DES APPS</h1>
               </Copy>
             </div>
             <div className="hero-tagline">
               <Copy animateOnScroll={false} delay={showPreloader ? 1.15 : 1}>
                 <p>
-                  At Terrene, we shape environments that elevate daily life, invite
-                  pause, and speak through texture and light.
+                  La simplicité est la sophistication suprême
+                </p>
+              </Copy>
+            </div>
+            <div className="hero-author">
+              <Copy animateOnScroll={false} delay={showPreloader ? 1.45 : 1}>
+                <p>
+                  Léonard de Vinci
                 </p>
               </Copy>
             </div>
@@ -373,6 +380,13 @@ export default function Home() {
       <section className="projects-full-container">
         <div className="projects-wrapper">
           <Projects />
+        </div>
+      </section>
+
+      {/* Services Section */}
+      <section className="services-full-container">
+        <div className="services-wrapper">
+          <Services />
         </div>
       </section>
 
