@@ -17,6 +17,8 @@ import FeaturedProjects from "@/components/FeaturedProjects/FeaturedProjects";
 import ClientReviews from "@/components/ClientReviews/ClientReviews";
 import CTAWindow from "@/components/CTAWindow/CTAWindow";
 import Copy from "@/components/Copy/Copy";
+import Skills from "@/components/Skills/Skills";
+import Projects from "@/components/Projects/Projects";
 
 let isInitialLoad = true;
 
@@ -301,7 +303,7 @@ export default function Home() {
 
 
       {/* What we do */}
-      <section className="what-we-do">
+      {/* <section className="what-we-do">
         <div className="container">
           <div className="what-we-do-header">
             <Copy delay={0.1}>
@@ -334,17 +336,14 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Featured Projects */}
       <section className="featured-projects-container">
         <div className="container">
-          <div className="featured-projects-header-callout">
-            <Copy delay={0.1}><p>Featured work</p></Copy>
-          </div>
           <div className="featured-projects-header">
             <Copy delay={0.15}>
-              <h2>A selection of recent studies and completed spaces</h2>
+              <h2>La Team</h2>
             </Copy>
           </div>
         </div>
@@ -352,17 +351,34 @@ export default function Home() {
       </section>
 
       {/* Client Reviews */}
-      <section className="client-reviews-container">
+      {/* <section className="client-reviews-container">
         <div className="container">
           <div className="client-reviews-header-callout">
             <p>Voices from our spaces</p>
           </div>
           <ClientReviews />
         </div>
+      </section> */}
+
+      {/* Skills Section */}
+      <section className="skills-full-container">
+        <div className="skills-wrapper">
+          <Skills />
+        </div>
       </section>
 
+
+
+      {/* Projects Section */}
+      <section className="projects-full-container">
+        <div className="projects-wrapper">
+          <Projects />
+        </div>
+      </section>
+
+
       {/* Gallery Callout */}
-      <section className="gallery-callout">
+      {/* <section className="gallery-callout">
         <div className="container">
           <div className="gallery-callout-col">
             <div className="gallery-callout-row">
@@ -399,15 +415,15 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* CTA + Footer */}
-      <CTAWindow
+      {/* <CTAWindow
         img="/home/home-cta-window.jpg"
         header="Terrene"
         callout="Spaces that breathe with time"
         description="Our approach is guided by rhythm, proportion, and light, allowing every environment to grow more meaningful as it is lived in."
-      />
+      /> */}
       <ConditionalFooter />
     </>
   );

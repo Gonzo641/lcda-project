@@ -1,4 +1,4 @@
-.featured-projects {
+/* .featured-projects {
   position: relative;
   width: 100vw;
   background-color: var(--base-500);
@@ -57,6 +57,10 @@
   padding: 2rem 0 1rem 0;
 }
 
+.featured-projects .featured-project-card-title h3 {
+  padding: 2rem 0 1rem 0;
+}
+
 .featured-projects .featured-project-card-description {
   width: 75%;
   text-align: left;
@@ -104,6 +108,158 @@
   .featured-projects .featured-project-card-title {
     width: 100%;
     text-align: center;
+  }
+
+  .featured-projects .featured-project-card-description {
+    display: none;
+  }
+} */
+
+
+.featured-projects {
+  position: relative;
+  width: 100vw;
+  background-color: var(--base-500);
+  color: var(--base-100);
+  /* padding: 4rem 0; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* --- CARD --- */
+.featured-projects .featured-project-card {
+  position: sticky;
+  width: 80%; /* avant 100% */
+  height: 85svh; /* avant 100svh */
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform-style: preserve-3d;
+  perspective: 1000px;
+  will-change: transform;
+}
+
+/* --- INNER --- */
+.featured-projects .featured-project-card-inner {
+  position: relative;
+  width: 100%;
+  height: 80%; /* réduit légèrement la hauteur interne */
+  padding: 1.5rem;
+  display: flex;
+  gap: 1rem;
+  border-radius: 1.5rem; /* arrondi plus doux */
+  background-color: var(--base-450);
+  transform-origin: 50% 100%;
+  will-change: transform;
+  overflow: hidden;
+}
+
+/* --- CONTENT --- */
+.featured-projects .featured-project-card-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 1;
+}
+
+.featured-projects .featured-project-card-content-main {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* --- TITLES & TEXT --- */
+.featured-projects .featured-project-card-title h2 {
+  padding: 1.5rem 0 0.75rem 0;
+}
+
+.featured-projects .featured-project-card-title h3 {
+  font-size: 1.2rem;
+  padding: 1rem 0;
+}
+
+.featured-projects .featured-project-card-description {
+  width: 75%;
+  text-align: left;
+  color: var(--base-250);
+}
+
+.featured-projects .featured-project-card-description p {
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+/* --- BOUTON --- */
+
+.featured-projects .btn {
+  margin-top: 1.5rem;
+}
+
+
+
+/* --- IMAGE --- */
+.featured-projects .featured-project-card-img {
+  flex: 1;
+  width: 100%;
+  height: 100%;
+  border-radius: 1rem;
+  overflow: hidden;
+}
+
+/* --- FADE OVERLAY (utilisé par GSAP) --- */
+.featured-projects .featured-project-card-inner::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--base-500);
+  opacity: var(--after-opacity, 0);
+  will-change: opacity;
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* --- MOBILE --- */
+@media (max-width: 1000px) {
+  .featured-projects {
+    padding: 2rem 0;
+  }
+
+  .featured-projects .featured-project-card {
+    width: 90%;
+    height: auto;
+  }
+
+  .featured-projects .featured-project-card-inner {
+    flex-direction: column;
+    height: auto;
+    padding: 1rem;
+  }
+
+  .featured-projects .featured-project-card-content,
+  .featured-projects .featured-project-card-img {
+    flex: 1;
+  }
+
+  .featured-projects .featured-project-card-info {
+    width: 75%;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .featured-projects .featured-project-card-title {
+    width: 100%;
+    text-align: center;
+  }
+
+  .featured-projects .featured-project-card-title h2 {
+    font-size: 1.5rem;
   }
 
   .featured-projects .featured-project-card-description {

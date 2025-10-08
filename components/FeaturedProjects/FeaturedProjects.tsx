@@ -6,6 +6,9 @@ import { useEffect } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Image from "next/image";
+import AnimatedButton from "../AnimatedButton/AnimatedButton";
+import Copy from "@/components/Copy/Copy";
+
 
 const FeaturedProjects: React.FC = () => {
   useEffect(() => {
@@ -68,22 +71,39 @@ const FeaturedProjects: React.FC = () => {
         <div key={index} className="featured-project-card">
           <div className="featured-project-card-inner">
             <div className="featured-project-card-content">
-              <div className="featured-project-card-info">
+              {/* <div className="featured-project-card-info">
                 <p>{project.info}</p>
-              </div>
+              </div> */}
               <div className="featured-project-card-content-main">
                 <div className="featured-project-card-title">
-                  <h2>{project.title}</h2>
+                  <Copy delay={0.1}>
+                  <h2>{project.name}</h2>
+                  </Copy>
+                </div>
+                <div className="featured-project-card-title">
+                  <Copy delay={0.15}>
+                  <h3>{project.status}</h3>
+                  </Copy>
                 </div>
                 <div className="featured-project-card-description">
+                  <Copy delay={0.2}>
                   <p className="lg">{project.description}</p>
+                  </Copy>
                 </div>
+                  {project.url && project.url.trim() !== "" && project.url !== "#" && (
+                    <AnimatedButton
+                      label="Discover More"
+                      route={project.url}
+                      animateOnScroll={true}
+                      delay={0.2}
+                    />
+                  )}
               </div>
             </div>
             <div className="featured-project-card-img">
               <Image
                 src={project.image}
-                alt={project.title}
+                alt={project.name}
                 width={1920}
                 height={1080}
                 quality={90}

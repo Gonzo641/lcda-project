@@ -1,0 +1,100 @@
+.skills-full-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  color: var(--base-100);
+  background: transparent;
+  /* padding: 4rem 0; */
+  overflow: hidden;
+}
+
+
+.skills-wrapper {
+  width: 100vw; /* ✅ occupe toute la largeur de l’écran */
+  margin: 0;
+  /* display: flex; */
+  flex-direction: column;
+  align-items: center;
+  gap: 4rem;
+  overflow: hidden; /* évite le scroll horizontal sur certains écrans */
+}
+
+
+
+.skills-section {
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.skills-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.skills-subtitle {
+  font-size: 1rem;
+  color: #ccc;
+  margin-bottom: 100px;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  row-gap: 2rem;   /* écart vertical */
+  column-gap: 0rem; /* écart horizontal */
+  justify-items: center;
+}
+
+
+.skill-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.skill-item:hover {
+  transform: scale(1.05);
+}
+
+.skill-image-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background-color: white;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  padding: 10px;
+  overflow: hidden; /* évite les débordements */
+}
+
+.skill-image {
+  object-fit: contain;
+  width: 100%;
+  height: 100%;
+}
+
+
+
+.skill-name {
+  margin-top: 10px;
+  font-size: 1rem;
+  color: white;
+}
+
+/* 📱 Responsive */
+@media (min-width: 640px) {
+  .skills-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .skills-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
