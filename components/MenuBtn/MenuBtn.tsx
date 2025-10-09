@@ -9,8 +9,10 @@ interface MenuBtnProps {
 
 const MenuBtn: React.FC<MenuBtnProps> = ({ isOpen, toggleMenu }) => {
   return (
-    <div
+    <button
+      type="button"
       className={`menu-toggle ${isOpen ? "opened" : "closed"}`}
+      aria-expanded={isOpen}
       onClick={toggleMenu}
     >
       <div className="menu-toggle-icon">
@@ -22,7 +24,7 @@ const MenuBtn: React.FC<MenuBtnProps> = ({ isOpen, toggleMenu }) => {
       <div className="menu-copy">
         <p>Menu</p>
       </div>
-    </div>
+    </button>
   );
 };
 

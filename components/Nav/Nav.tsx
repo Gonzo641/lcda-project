@@ -15,6 +15,7 @@ import SplitText from "gsap/SplitText";
 import { useLenis } from "lenis/react";
 import MenuBtn from "../MenuBtn/MenuBtn";
 import { useViewTransition } from "@/hooks/useViewTransition";
+import { useMenu } from "../Menu/menu-context";
 
 gsap.registerPlugin(SplitText, CustomEase);
 
@@ -25,7 +26,6 @@ interface SplitTextInstance {
 
 const Nav = () => {
   const [isAnimating, setIsAnimating] = useState(false);
-  const [isOpen, setIsOpen] = useState(false);
   const [isNavigating, setIsNavigating] = useState(false);
 
   const menuRef = useRef<HTMLDivElement | null>(null);
@@ -34,16 +34,17 @@ const Nav = () => {
   const lenis = useLenis();
   const { navigateWithTransition } = useViewTransition();
 
-  // ✅ Empêche le scroll quand le menu est ouvert
-useEffect(() => {
-  if (lenis) {
-    if (isOpen) lenis.stop();
-    else lenis.start();
-  }
-}, [lenis, isOpen]);
+  const { isOpen, close } = useMenu();
 
 
-  // ✅ Ease perso
+  useEffect(() => {
+    if (lenis) {
+      if (isOpen) lenis.stop();
+      else lenis.start();
+    }
+  }, [lenis, isOpen]);
+
+
   useLayoutEffect(() => {
     CustomEase.create(
       "hop",
@@ -51,12 +52,9 @@ useEffect(() => {
     );
   }, []);
 
-  // ✅ Initialisation SplitText
   useLayoutEffect(() => {
     if (!menuRef.current) return;
     const menu = menuRef.current;
-
-    // Reset des anciens splits
     splitTextRefs.current.forEach((split) => split.revert());
     splitTextRefs.current = [];
 
@@ -155,38 +153,30 @@ useEffect(() => {
     }
   }, [isOpen, animateMenu]);
 
-  // ✅ Toggle menu
-  const toggleMenu = useCallback(() => {
-    if (!isAnimating && isInitializedRef.current && !isNavigating) {
-      setIsOpen((prev) => !prev);
-    }
-  }, [isAnimating, isNavigating]);
-
-  // ✅ Gestion des liens
   const handleLinkClick = useCallback(
     (href: string) => {
       const currentPath = window.location.pathname;
       if (currentPath === href) {
-        if (isOpen) setIsOpen(false);
+        if (isOpen) close();
         return;
       }
-
       if (isNavigating) return;
       setIsNavigating(true);
+      close();
       navigateWithTransition(href);
     },
-    [isNavigating, isOpen, navigateWithTransition]
+    [isNavigating, isOpen, close, navigateWithTransition]
   );
+
 
   return (
     <div>
-      <MenuBtn isOpen={isOpen} toggleMenu={toggleMenu} />
       <div className="menu" ref={menuRef}>
         <div className="menu-wrapper">
           <div className="col col-1">
             <div className="links">
               {[
-                { href: "/", label: "Index" },
+                { href: "/", label: "Home" },
                 { href: "/studio", label: "Studio" },
                 { href: "/spaces", label: "Our Spaces" },
                 { href: "/sample-space", label: "One Installation" },

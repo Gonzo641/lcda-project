@@ -34,16 +34,18 @@
 
 .menu-toggle-icon {
   position: absolute;
-  top: 2.5px;
+  top: 50%;
   left: 2.5px;
-  width: 48px;
-  height: 48px;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
   border-radius: 100%;
   background-color: #7d2ae8;
   transition: all 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
   z-index: 10;
   overflow: hidden;
 }
+
 
 .hamburger {
   position: absolute;
@@ -87,3 +89,5 @@
 .menu-toggle.opened .menu-bar[data-position="bottom"] {
   transform: translateY(0) rotate(-45deg) scaleX(1.05);
 }
+
+

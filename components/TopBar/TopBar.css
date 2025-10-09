@@ -1,3 +1,4 @@
+/* TopBar.css (remplace le contenu si tu veux, ou ajoute les règles manquantes) */
 .top-bar {
   position: fixed;
   top: 0;
@@ -7,18 +8,31 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  z-index: 10;
+  z-index: 1001; /* au-dessus du reste */
 }
 
-
-
-
-.top-bar .btn {
-  width: 10rem;
-}
-
-.top-bar .top-bar-logo {
+.top-bar-logo {
   width: 5rem;
+}
+
+/* 🟣 Ici on neutralise le positionnement "fixed/centré" du MenuBtn */
+.top-bar-cta .menu-toggle {
+  position: static !important;
+  inset: auto !important;
+  transform: none !important;
+  margin: 0 !important;
+}
+
+/* si ton MenuBtn a un conteneur interne, on garde tout en ligne */
+.top-bar-cta {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+/* taille éventuelle du bouton (facultatif) */
+.top-bar-cta .menu-toggle {
+  width: 9rem;
 }
 
 @media (max-width: 1000px) {

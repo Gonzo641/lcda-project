@@ -2,6 +2,7 @@ import "./globals.css";
 import ClientLayout from "@/ClientLayout";
 import TopBar from "@/components/TopBar/TopBar";
 import type { ReactNode } from "react";
+import { MenuProvider } from "@/components/Menu/menu-context";
 
 export const metadata = {
   title: "Terrene | MWT by Codegrid ",
@@ -13,10 +14,11 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     <html lang="en">
       <body>
       <ClientLayout>
+        <MenuProvider>
         <TopBar />
         <main>{children}</main>
+        </MenuProvider>
       </ClientLayout>
-
       </body>
     </html>
   );

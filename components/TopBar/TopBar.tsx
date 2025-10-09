@@ -10,12 +10,15 @@ import Link from "next/link";
 
 import AnimatedButton from "../AnimatedButton/AnimatedButton";
 import { useViewTransition } from "@/hooks/useViewTransition";
+import MenuBtn from "../MenuBtn/MenuBtn";
+import { useMenu } from "../Menu/menu-context";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const TopBar = () => {
   const topBarRef = useRef<HTMLDivElement | null>(null);
   const { navigateWithTransition } = useViewTransition();
+  const { isOpen, toggle } = useMenu();
 
   const lastScrollY = useRef(0);
   const isScrolling = useRef(false);
@@ -70,12 +73,13 @@ const TopBar = () => {
       </div>
 
       <div className="top-bar-cta">
-        <AnimatedButton label="Reserve" route="/connect" animate={false} />
+        {/* remplace AnimatedButton par le MenuBtn */}
+        {/* <button className="menu-toggle-btn" onClick={toggle} aria-label="Ouvrir/fermer le menu"> */}
+          <MenuBtn isOpen={isOpen} toggleMenu={toggle} />
+        {/* </button> */}
       </div>
     </div>
   );
 };
 
 export default TopBar;
-
-

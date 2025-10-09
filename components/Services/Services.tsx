@@ -6,6 +6,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { servicesData } from "./services-data"; // ⬅️ named export
 import Link from "next/link";
 import "./Services.css";
+import Copy from "../Copy/Copy";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -42,11 +43,15 @@ function Services() {
 
   return (
     <section className="services-section">
-      <h2 className="services-title">Nos Services</h2>
-      <p className="services-subtitle">
-        Voici les différents services que nous proposons, n’hésitez pas à nous
-        contacter si vous avez des questions.
-      </p>
+      <Copy delay={0.15}>
+        <h2 className="services-title">Nos Services</h2>
+      </Copy>
+      <Copy delay={0.25}>
+        <p className="services-subtitle">
+          Voici les différents services que nous proposons, n’hésitez pas à nous
+          contacter si vous avez des questions.
+        </p>
+      </Copy>
 
       <div className="services-grid" ref={gridRef}>
         {servicesData.map(({ id, title, description, icon: Icon, url }) => (
@@ -54,9 +59,12 @@ function Services() {
             <div className="service-icon" aria-hidden="true">
               <Icon size={40} color="#CBA6F7" />
             </div>
-
-            <h3 className="service-title">{title}</h3>
-            <p className="service-description">{description}</p>
+            <Copy delay={0.25}>
+              <h3 className="service-title">{title}</h3>
+            </Copy>
+            <Copy delay={0.35}>
+              <p className="service-description">{description}</p>
+            </Copy>
 
             <Link
               href={url}
