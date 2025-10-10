@@ -177,11 +177,12 @@ const Nav = () => {
             <div className="links">
               {[
                 { href: "/", label: "Home" },
-                { href: "/studio", label: "Studio" },
-                { href: "/spaces", label: "Our Spaces" },
-                { href: "/sample-space", label: "One Installation" },
-                { href: "/blueprints", label: "Blueprints" },
-                { href: "/connect", label: "Connect" },
+                { href: "/contact", label: "Contact" },
+                // { href: "/studio", label: "Studio" },
+                // { href: "/spaces", label: "Our Spaces" },
+                // { href: "/sample-space", label: "One Installation" },
+                // { href: "/blueprints", label: "Blueprints" },
+                // { href: "/connect", label: "Connect" },
               ].map(({ href, label }) => (
                 <div className="link" key={href}>
                   <Link
