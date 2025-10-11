@@ -5,8 +5,8 @@ import type { ReactNode } from "react";
 import { MenuProvider } from "@/components/Menu/menu-context";
 
 export const metadata = {
-  title: "Terrene | MWT by Codegrid ",
-  description: "Monthly Website Template by Codegrid | August 2025",
+  title: "La Cime Des Apps",
+  description: "lcda app",
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
@@ -23,5 +23,3 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     </html>
   );
 }
-
-
