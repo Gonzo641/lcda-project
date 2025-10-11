@@ -1,7 +1,7 @@
 "use client";
 import "./FeaturedProjects.css";
 
-import featuredProjectsContent, { FeaturedProject } from "./featured-projects-content";
+import teamContent, { Team } from "./featured-projects-content";
 import { useEffect } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -10,7 +10,7 @@ import AnimatedButton from "../AnimatedButton/AnimatedButton";
 import Copy from "@/components/Copy/Copy";
 
 
-const FeaturedProjects: React.FC = () => {
+const TeamSection: React.FC = () => {
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
 
@@ -67,7 +67,7 @@ const FeaturedProjects: React.FC = () => {
 
   return (
     <div className="featured-projects">
-      {featuredProjectsContent.map((project: FeaturedProject, index: number) => (
+      {teamContent.map((project: Team, index: number) => (
         <div key={index} className="featured-project-card">
           <div className="featured-project-card-inner">
             <div className="featured-project-card-content">
@@ -119,5 +119,5 @@ const FeaturedProjects: React.FC = () => {
   );
 };
 
-export default FeaturedProjects;
+export default TeamSection;
 

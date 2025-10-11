@@ -8,7 +8,6 @@ import ScrollTrigger from "gsap/ScrollTrigger";
 import Image from "next/image";
 import Link from "next/link";
 
-import AnimatedButton from "../AnimatedButton/AnimatedButton";
 import { useViewTransition } from "@/hooks/useViewTransition";
 import MenuBtn from "../MenuBtn/MenuBtn";
 import { useMenu } from "../Menu/menu-context";

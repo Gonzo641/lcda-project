@@ -9,7 +9,6 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Link from "next/link";
 import Image from "next/image";
 
-import { useViewTransition } from "@/hooks/useViewTransition";
 import Copy from "../Copy/Copy";
 
 import {
@@ -20,7 +19,6 @@ import {
 gsap.registerPlugin(ScrollTrigger);
 
 const Footer: React.FC = () => {
-  const { navigateWithTransition } = useViewTransition();
   const socialIconsRef = useRef<HTMLDivElement | null>(null);
 
 useGSAP(
@@ -71,7 +69,7 @@ useGSAP(
                 </Copy>
               </div>
               <Copy delay={0.2}>
-                <h2>"La simplicité est la sophistication suprême"</h2>
+                <h2>&quot;La simplicité est la sophistication suprême&quot;</h2>
               </Copy>
               <Copy delay={0.3}>
                 <p className="footer-leonard">Léonard de Vinci</p>

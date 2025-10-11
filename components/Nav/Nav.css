@@ -29,6 +29,7 @@
   position: relative;
   height: 100%;
   display: flex;
+  align-items: center;
 }
 
 .col-1 {
@@ -74,6 +75,20 @@
   gap: 2rem;
 }
 
+.social-link {
+  display: block; /* <-- clé pour forcer la disposition en colonne */
+  color: var(--base-100);
+  text-decoration: none;
+  font-weight: 400;
+  transition: color 0.3s ease;
+  margin-top: 0.25rem; /* un léger espacement entre les liens */
+}
+
+.social-link:hover {
+  color: var(--base-400);
+}
+
+
 .menu-meta {
   color: var(--base-100);
 }
@@ -85,8 +100,9 @@
 
 .menu-meta p:nth-child(1) {
   color: var(--base-400);
-  margin-bottom: 1rem;
+  /* margin-bottom: 1rem; */
 }
+
 
 /* SplitText mask styles */
 .split-line {

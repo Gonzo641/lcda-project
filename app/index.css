@@ -82,6 +82,11 @@
   z-index: 2;
 }
 
+.anim-btn-hero {
+  display: flex;
+  gap: 1rem;
+}
+
 .who-we-are .who-we-are-title {
   text-transform: uppercase;
   font-size: 3rem;

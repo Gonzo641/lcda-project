@@ -75,7 +75,7 @@ export default function RevealImage({
 
   return (
     <div ref={ref} className={wrapperClassName}>
-      <Image {...imgProps} className={imgClassName} />
+      <Image {...imgProps} className={imgClassName} alt="image" />
     </div>
   );
 }

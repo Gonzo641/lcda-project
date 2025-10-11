@@ -13,9 +13,7 @@ import { useLenis } from "lenis/react";
 import Nav from "@/components/Nav/Nav";
 import ConditionalFooter from "@/components/ConditionalFooter/ConditionalFooter";
 import AnimatedButton from "@/components/AnimatedButton/AnimatedButton";
-import FeaturedProjects from "@/components/FeaturedProjects/FeaturedProjects";
-import ClientReviews from "@/components/ClientReviews/ClientReviews";
-import CTAWindow from "@/components/CTAWindow/CTAWindow";
+import TeamSection from "@/components/Team/Team";
 import Copy from "@/components/Copy/Copy";
 import Skills from "@/components/Skills/Skills";
 import Projects from "@/components/Projects/Projects";
@@ -272,12 +270,20 @@ export default function Home() {
                 </p>
               </Copy>
             </div>
-            <AnimatedButton
-              label="Discover More"
-              route="/studio"
-              animateOnScroll={false}
-              delay={showPreloader ? 1.3 : 1.15}
-            />
+            <div className="anim-btn-hero">
+              <AnimatedButton
+                label="Contactez-nous"
+                route="/contact"
+                animateOnScroll={false}
+                delay={showPreloader ? 1.3 : 1.15}
+              />
+              <AnimatedButton
+                label="Formulez votre projet"
+                route="/"
+                animateOnScroll={false}
+                delay={showPreloader ? 1.3 : 1.15}
+              />
+            </div>
           </div>
         </div>
       </section>
@@ -308,44 +314,7 @@ export default function Home() {
       </section>
 
 
-
-      {/* What we do */}
-      {/* <section className="what-we-do">
-        <div className="container">
-          <div className="what-we-do-header">
-            <Copy delay={0.1}>
-              <h1>
-                <span className="spacer">&nbsp;</span>
-                At Terrene, we design with purpose and clarity, creating spaces
-                that speak through light, scale, and the quiet confidence of lasting form.
-              </h1>
-            </Copy>
-          </div>
-          <div className="what-we-do-content">
-            <div className="what-we-do-col">
-              <Copy delay={0.1}><p>How we work</p></Copy>
-              <Copy delay={0.15}>
-                <p className="lg">
-                  We approach each build with a clarity of intent. Every plan is
-                  shaped through research, iteration, and conversation. What remains
-                  is the essential, designed to last and built to feel lived in.
-                </p>
-              </Copy>
-            </div>
-            <div className="what-we-do-col">
-              <div className="what-we-do-tags" ref={tagsRef}>
-                {["Quiet", "View", "Tactile", "Light-forward", "Slow design", "Modular rhythm"].map(
-                  (tag, i) => (
-                    <div key={i} className="what-we-do-tag"><h3>{tag}</h3></div>
-                  )
-                )}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section> */}
-
-      {/* Featured Projects */}
+      {/* Team Section */}
       <section className="featured-projects-container">
         <div className="container">
           <div className="featured-projects-header">
@@ -354,18 +323,8 @@ export default function Home() {
             </Copy>
           </div>
         </div>
-        <FeaturedProjects />
+        <TeamSection />
       </section>
-
-      {/* Client Reviews */}
-      {/* <section className="client-reviews-container">
-        <div className="container">
-          <div className="client-reviews-header-callout">
-            <p>Voices from our spaces</p>
-          </div>
-          <ClientReviews />
-        </div>
-      </section> */}
 
       {/* Skills Section */}
       <section className="skills-full-container">
@@ -373,8 +332,6 @@ export default function Home() {
           <Skills />
         </div>
       </section>
-
-
 
       {/* Projects Section */}
       <section className="projects-full-container">
@@ -389,55 +346,6 @@ export default function Home() {
           <Services />
         </div>
       </section>
-
-
-      {/* Gallery Callout */}
-      {/* <section className="gallery-callout">
-        <div className="container">
-          <div className="gallery-callout-col">
-            <div className="gallery-callout-row">
-              <div className="gallery-callout-img gallery-callout-img-1">
-                <Image src="/gallery-callout/gallery-callout-1.jpg" alt="Gallery callout 1" width={600} height={400} />
-              </div>
-              <div className="gallery-callout-img gallery-callout-img-2">
-                <Image src="/gallery-callout/gallery-callout-2.jpg" alt="Gallery callout 2" width={600} height={400} />
-                <div className="gallery-callout-img-content">
-                  <h3>800+</h3>
-                  <p>Project Images</p>
-                </div>
-              </div>
-            </div>
-            <div className="gallery-callout-row">
-              <div className="gallery-callout-img gallery-callout-img-3">
-                <Image src="/gallery-callout/gallery-callout-3.jpg" alt="Gallery callout 3" width={600} height={400} />
-              </div>
-              <div className="gallery-callout-img gallery-callout-img-4">
-                <Image src="/gallery-callout/gallery-callout-4.jpg" alt="Gallery callout 4" width={600} height={400} />
-              </div>
-            </div>
-          </div>
-          <div className="gallery-callout-col">
-            <div className="gallery-callout-copy">
-              <Copy delay={0.1}>
-                <h3>
-                  Take a closer look at the projects that define our practice.
-                  From intimate interiors to expansive landscapes, each image highlights
-                  a unique perspective that might spark your next big idea.
-                </h3>
-              </Copy>
-              <AnimatedButton label="Explore Gallery" route="blueprints" />
-            </div>
-          </div>
-        </div>
-      </section> */}
-
-      {/* CTA + Footer */}
-      {/* <CTAWindow
-        img="/home/home-cta-window.jpg"
-        header="Terrene"
-        callout="Spaces that breathe with time"
-        description="Our approach is guided by rhythm, proportion, and light, allowing every environment to grow more meaningful as it is lived in."
-      /> */}
       <ConditionalFooter />
     </>
   );

@@ -13,7 +13,6 @@ import gsap from "gsap";
 import CustomEase from "gsap/CustomEase";
 import SplitText from "gsap/SplitText";
 import { useLenis } from "lenis/react";
-import MenuBtn from "../MenuBtn/MenuBtn";
 import { useViewTransition } from "@/hooks/useViewTransition";
 import { useMenu } from "../Menu/menu-context";
 
@@ -25,7 +24,7 @@ interface SplitTextInstance {
 }
 
 const Nav = () => {
-  const [isAnimating, setIsAnimating] = useState(false);
+  const [, setIsAnimating] = useState(false);
   const [isNavigating, setIsNavigating] = useState(false);
 
   const menuRef = useRef<HTMLDivElement | null>(null);
@@ -183,6 +182,7 @@ const Nav = () => {
                 // { href: "/sample-space", label: "One Installation" },
                 // { href: "/blueprints", label: "Blueprints" },
                 // { href: "/connect", label: "Connect" },
+                { href: "/price", label: "Prix" },
               ].map(({ href, label }) => (
                 <div className="link" key={href}>
                   <Link
@@ -203,22 +203,32 @@ const Nav = () => {
             <div className="socials">
               <div className="sub-col">
                 <div className="menu-meta menu-commissions">
-                  <p>Commissions</p>
-                  <p>build@terrene.studio</p>
-                  <p>+1 (872) 441-2086</p>
+                  <p>Contact</p>
+                  <p>contact@lacimeapps.fr</p>
+                  <p>
+                      +33 6 50 51 64 52
+                      <br />
+                      +33 6 23 05 36 10
+                  </p>
                 </div>
                 <div className="menu-meta">
                   <p>Studio Address</p>
-                  <p>18 Cordova Lane</p>
-                  <p>Seattle, WA 98101</p>
+                  <p>Savoie, 73520 — France</p>
                 </div>
               </div>
               <div className="sub-col">
                 <div className="menu-meta">
                   <p>Social</p>
-                  <p>Instagram</p>
-                  <p>Are.na</p>
-                  <p>LinkedIn</p>
+                  <Link href={"https://github.com/JonasMouret"} 
+                        aria-label="GitHub" 
+                        className="social-link">                  
+                    Github
+                  </Link>
+                  <Link href={"https://www.linkedin.com/company/la-cime-des-apps/"} 
+                        aria-label="LinkedIn" 
+                        className="social-link">
+                    LinkedIn
+                  </Link>
                 </div>
               </div>
             </div>
