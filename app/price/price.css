@@ -176,6 +176,17 @@
   transition: border-color 0.3s ease;
 }
 
+/* --- Tablette --- */
+@media (max-width: 1024px) {
+  .price-page {
+    padding: 6rem 1rem;
+  }
+
+  .payment-section {
+    max-width: 100%;
+  }
+}
+
 /* --- Responsive --- */
 @media (max-width: 900px) {
   .price-info {

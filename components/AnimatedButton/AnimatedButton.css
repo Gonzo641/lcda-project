@@ -15,6 +15,12 @@
   transform: scale(0);
 }
 
+@media (max-width: 540px) {
+  .btn {
+    margin: 0.5rem 0;
+  }
+}
+
 .btn .circle {
   position: relative;
   display: block;

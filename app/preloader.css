@@ -30,7 +30,6 @@
   left: 50%;
   transform: translate(-50%, -50%);
   display: flex;
-  gap: 0.5rem;
 }
 
 .loader #word-1 {
@@ -48,7 +47,7 @@
 }
 
 .loader .word h1 {
-  font-size: 2rem;
+  font-size: 4rem;
   color: var(--base-300);
   letter-spacing: -0.05rem;
 }
@@ -151,5 +150,20 @@
 
   .loader .counter .count .digit {
     padding-top: 0.25rem;
+  }
+  .loader .word h1 {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 760px) {
+  .loader .word h1 {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 539px) {
+  .loader .word h1 {
+    font-size: 1rem;
   }
 }

@@ -184,7 +184,7 @@ export default function Home() {
   return (
     <>
       {/* Preloader */}
-      {/* {showPreloader && (
+      {showPreloader && (
         <div className="loader">
           <div className="overlay">
             <div className="block"></div>
@@ -193,41 +193,41 @@ export default function Home() {
           <div className="intro-logo">
             <div className="word" id="word-1">
               <h1>
-                <span>Terrene</span>
+                <span>Vous êtes</span>
               </h1>
             </div>
             <div className="word" id="word-2">
-              <h1>Balance</h1>
+              <h1>les bienvenus !</h1>
             </div>
           </div>
-          <div className="divider"></div>
+          {/* <div className="divider"></div> */}
           <div className="spinner-container">
             <div className="spinner"></div>
           </div>
           <div className="counter">
             <div className="count">
               <div className="digit"><h1>0</h1></div>
-              <div className="digit"><h1>0</h1></div>
-            </div>
-            <div className="count">
-              <div className="digit"><h1>2</h1></div>
-              <div className="digit"><h1>7</h1></div>
-            </div>
-            <div className="count">
-              <div className="digit"><h1>6</h1></div>
               <div className="digit"><h1>5</h1></div>
             </div>
             <div className="count">
-              <div className="digit"><h1>9</h1></div>
-              <div className="digit"><h1>8</h1></div>
+              <div className="digit"><h1>0</h1></div>
+              <div className="digit"><h1>4</h1></div>
             </div>
             <div className="count">
-              <div className="digit"><h1>9</h1></div>
-              <div className="digit"><h1>9</h1></div>
+              <div className="digit"><h1>0</h1></div>
+              <div className="digit"><h1>3</h1></div>
+            </div>
+            <div className="count">
+              <div className="digit"><h1>0</h1></div>
+              <div className="digit"><h1>2</h1></div>
+            </div>
+            <div className="count">
+              <div className="digit"><h1>0</h1></div>
+              <div className="digit"><h1>1</h1></div>
             </div>
           </div>
         </div>
-      )} */}
+      )}
 
       {/* Navigation */}
       <Nav />
@@ -252,19 +252,19 @@ export default function Home() {
         <div className="container">
           <div className="hero-content">
             <div className="hero-header">
-              <Copy animateOnScroll={false} delay={showPreloader ? 1 : 0.85}>
+              <Copy animateOnScroll={false} delay={showPreloader ? 9.6 : 0.85}>
                 <h1>LA CIME DES APPS</h1>
               </Copy>
             </div>
             <div className="hero-tagline">
-              <Copy animateOnScroll={false} delay={showPreloader ? 1.15 : 1}>
+              <Copy animateOnScroll={false} delay={showPreloader ? 9.7 : 1}>
                 <p>
                   La simplicité est la sophistication suprême
                 </p>
               </Copy>
             </div>
             <div className="hero-author">
-              <Copy animateOnScroll={false} delay={showPreloader ? 1.45 : 1}>
+              <Copy animateOnScroll={false} delay={showPreloader ? 9.8 : 1}>
                 <p>
                   Léonard de Vinci
                 </p>
@@ -275,13 +275,13 @@ export default function Home() {
                 label="Contactez-nous"
                 route="/contact"
                 animateOnScroll={false}
-                delay={showPreloader ? 1.3 : 1.15}
+                delay={showPreloader ? 9.8 : 1.15}
               />
               <AnimatedButton
                 label="Formulez votre projet"
                 route="/"
                 animateOnScroll={false}
-                delay={showPreloader ? 1.3 : 1.15}
+                delay={showPreloader ? 9.8 : 1.15}
               />
             </div>
           </div>
